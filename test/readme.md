@@ -1,6 +1,8 @@
 # test 
 
-This is a test project.  It doesn't do anything notable.
+This is a test project that blinks the 
+LED_BUILTIN (at PB5) for 1 second, every 
+other second.
 <br>
 <br>
 
@@ -11,6 +13,5 @@ This is a test project.  It doesn't do anything notable.
 ## Dependencies 
 
 + gcc-avr
-+ avr-libc
 + binutils-avr
 + avrdude
