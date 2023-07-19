@@ -1,30 +1,43 @@
 /**
-  * Device: 
-  * arduino uno r3
+  * test.c
+  * 
+  *
+  * Hardware: 
+  *	arduino uno r3
   *
   * Description:
-  * This project just turns the built in led light on
-  * for one second and off for another second... forever.
+  * This project just turns the built in led light on for one second and off for 
+  * another second... forever.
   *
-  * First the data direction Data Direction Register 
-  * (DDRB) needs to be told if its receiving input (0) 
-  * or giving output (1).  We want it to send output to
-  * the built in led light on the arduino board which is
-  * attached to pb5 (so we want to set bit num 5 to 1 
-  * instead of 0);  Knowing this, we want to set DDRB
-  * (0x24) from 0000 0000 to 0010 0000 then we want to set 
-  * PORTB from 0000 0000 (led off) to 0010 0000 (led on).
+  * DDRB (location 0x25) is a single byte (hence the unsigned char) register 
+  * location.  DDR stands for Data Direction Register.  When a bit in the 
+  * register is set to 0, the register will recieve input; setting a bit
+  * to 1 will tell the hardware to treat it as an output register. 
+  * Setting bit 5 to 1 (true) on DDRB will let us turn the led on and off
+  * on portb5.
   *
-  * Note that bits in a byte are numbered like an array 
-  * (7-0) instead of (8-1).
+  * PORTB (location 0x24) is another single byte register location.  Port B 
+  * bit 5 is the port that controls LED_BUILTIN (the built in led next to 
+  * your tx and rx led's).  Setting bit 5 on PORTB from 0 to 1 will turn on 
+  * the led.  
+  *
+  * Note that bits in a byte are numbered like an array (7-0).
+  *
+  * There are multiple ways to set a bit in a byte.  A polite way would
+  * probably be 'ddrb = ddrb | (1 << 5);' because that wouldn't interfere
+  * with any of the other bits in the byte.  I've chosed to just use decimal 
+  * numbers because I don't care about any of the other bits, infact I want 
+  * them to be set to 0 if they aren't. 
+  *
+  * Using avr-libc (<avr/io.h>) is probably better because it automatically 
+  * detects the hardware then loads the correct header (in my case it was 
+  * /usr/lib/avr/include/avr/iom328p.h) which sets macros (PORTB, DDRB, 
+  * etc...) to the correct address locations.
   */
 
 #include <util/delay.h>
 
-// single byte pointer to 0x24 (DDRB)
-#define ddrb *((volatile unsigned char*) 0x24)
-
-// single byte pointer to 0x25 (PORTB) 
+#define ddrb  *((volatile unsigned char*) 0x24)
 #define portb *((volatile unsigned char*) 0x25)
 
 int 
@@ -35,11 +48,8 @@ main(void)
 	while (1)
 	{
 		portb = 32;
-
 		_delay_ms(1000);
-
 		portb = 0;
-
 		_delay_ms(1000);
 	}
 
