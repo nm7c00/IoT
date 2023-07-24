@@ -1,4 +1,4 @@
-# test 
+# example 
 
 This is an example project with a very small circuit that turns on an led when a button is pressed
 <br>
