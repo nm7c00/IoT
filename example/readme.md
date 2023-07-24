@@ -1,14 +1,13 @@
 # test 
 
-This is a test project that blinks the 
-LED_BUILTIN (at PB5) for 1 second, every 
-other second.
+This is an example project with a very small circuit that turns on an led when a button is pressed
 <br>
 <br>
 
 ## Hardware 
 
-+ arduino uno r3 (atmega328p) 
++ arduino uno r3 (atmega328p)
++ an led, some resistors and a button
 
 ## Dependencies 
 
