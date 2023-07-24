@@ -16,5 +16,10 @@ This is an example project with a very small circuit that turns on an led when a
 + binutils-avr
 + avrdude
 
+<br>
+<br>
+<br>
+
+## Schematic
 
 ![alt text](https://github.com/nm7c00/IoT/blob/master/example/example.PNG?raw=true)
