@@ -12,6 +12,7 @@ other second.
 
 ## Dependencies 
 
++ avr-libc 
 + gcc-avr
 + binutils-avr
 + avrdude
