@@ -12,4 +12,4 @@ make TEST DEVICE=/dev/ttyACM0
 will compile test/src/ > test/build/test.hex and flash it 
 to $(DEVICE).  
 <br>
-Note: the make flag for each project is its dirname capitalized.
+The make flag for each project is its dirname capitalized.
