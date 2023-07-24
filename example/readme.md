@@ -16,9 +16,6 @@ This is an example project with a very small circuit that turns on an led when a
 + binutils-avr
 + avrdude
 
-<br>
-<br>
-<br>
 
 ## Schematic
 
