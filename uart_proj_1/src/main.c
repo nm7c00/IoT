@@ -13,7 +13,7 @@
  *		Here is a high level overview of the steps involved 
  * 			0 configure the usart settings (baud rate, frame format)
  * 			1 turn on the rx/tx pins
- * 			2 write data to a buffer.  
+ * 			2 write data to the output buffer.  
  * 		There are different sized buffers ranging from 5 - 9 bits.  I am using the 8 bit buffer.  
  * 
  * 		On the receiving end was my raspberry pi 4 b, running raspbian.  To use a pi, you need to enable your serial ports with 'sudo raspi-config'.
