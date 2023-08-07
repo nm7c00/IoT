@@ -18,7 +18,7 @@ EXAMPLE:
 
 
 UART_PROJ_1:
-	avr-gcc -std=c99 -O1 -DF_CPU=16000000UL -mmcu=atmega328p -c -o uart_proj_1/build/main.o uart_proj_1/src/main.c
-	avr-gcc -std=c99 -O1 -o uart_proj_1/build/main.bin uart_proj_1/build/main.o 
-	avr-objcopy -O ihex -R .eeprom uart_proj_1/build/main.bin uart_proj_1/build/main.hex
-	sudo avrdude -F -V -c arduino -p ATMEGA328P -P $(DEVICE) -b 115200 -U flash:w:uart_proj_1/build/main.hex
+	avr-gcc -std=gnu99 -O0 -DF_CPU=16000000UL -mmcu=atmega328p -c -o uart_test/build/main.o uart_test/src/main.c
+	avr-gcc -std=gnu99 -O0 -o uart_test/build/main.bin uart_test/build/main.o 
+	avr-objcopy -O ihex -R .eeprom uart_test/build/main.bin uart_test/build/main.hex
+	sudo avrdude -F -V -c arduino -p ATMEGA328P -P $(DEVICE) -b 115200 -U flash:w:uart_test/build/main.hex
